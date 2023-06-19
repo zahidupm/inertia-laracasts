@@ -1,7 +1,9 @@
 <template>
-    <h1>Home</h1>
+    <h1 class="text-red-500">Home</h1>
+
+    <Nav />
 </template>
 
-<script>
-    export default {};
+<script setup>
+    import Nav from '../Shared/Nav.vue';
 </script>

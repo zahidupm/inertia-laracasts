@@ -1,5 +1,5 @@
-import { createInertiaApp } from '@inertiajs/vue3'
-import { createApp, h } from 'vue'
+import { createInertiaApp } from '@inertiajs/vue3';
+import { createApp, h } from 'vue';
 
 createInertiaApp({
   resolve: name => {
@@ -11,4 +11,7 @@ createInertiaApp({
       .use(plugin)
       .mount(el)
   },
-})
+  progress: {
+    color: '#29d',
+  }
+});
