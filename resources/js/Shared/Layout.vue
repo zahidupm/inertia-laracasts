@@ -13,7 +13,6 @@
 
     <section class="p-6">
         <div class="max-w-3xl mx-auto">
-            <h1>Laracasts</h1>
             <slot />
         </div>
     </section>

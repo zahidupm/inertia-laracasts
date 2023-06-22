@@ -7,12 +7,6 @@
         <Link href="/users" class="text-blue-500" preserve-scroll>Refresh</Link>
     </div>
 </template>
-<script>
+<script setup>
 import { Link } from '@inertiajs/vue3';
-import Layout from '../Shared/Layout.vue';
-export default {
-    layout: Layout,
-
-    props: { time: String }
-}
 </script>
