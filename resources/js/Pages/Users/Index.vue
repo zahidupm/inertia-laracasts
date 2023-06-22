@@ -1,6 +1,10 @@
 <template>
     <Head title="Users" />
-    <h1 class="text-3xl font-bold">Users</h1>
+    <div class="flex justify-between mb-6">
+        <h1 class="text-3xl font-bold">Users</h1>
+
+        <input v-model="search" type="text" placeholder="Search..." class="border  px-2 rounded-lg" />
+    </div>
 
     <div class="container p-2 mx-auto sm:p-4 dark:text-gray-100">
         <div class="overflow-x-auto">
@@ -36,9 +40,18 @@
     <Pagination :links="users.links"></Pagination>
 </template>
 <script setup>
-import Pagination from '../Shared/Pagination.vue';
+import Pagination from '@/Shared/Pagination.vue';
+import { ref } from 'vue';
 
 defineProps({
     users: Array
-})
+});
+
+let search = ref('');
+
+// watch(search, value => {
+//     router.get('/users', { search: value }, {
+//         preserveState: true
+//     });
+// });
 </script>

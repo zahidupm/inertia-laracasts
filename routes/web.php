@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/users', function () {
-    return Inertia::render('Users', [
+    return Inertia::render('Users/Index', [
         'users' => User::all()->map(fn($user) => [
             'id' => $user->id,
             'name' => $user->name,
@@ -28,10 +28,21 @@ Route::get('/users', function () {
     ]);
 });
 
-Route::get('/settings', function () {
-    return Inertia::render('Settings');
+Route::get('/users/create', function () {
+    return Inertia::render('Users/Create');
 });
 
-Route::post('/logout', function () {
-    dd(request('foo'));
+Route::post('/users', function () {
+    $attributes = Request::validate([
+        'name' => 'required',
+        'email' => ['required', 'email'],
+        'password' => 'required',
+    ]);
+
+    User::create($attributes);
+    return redirect('/users');
+});
+
+Route::get('/settings', function () {
+    return Inertia::render('Settings');
 });
