@@ -1,9 +1,9 @@
-import { createInertiaApp } from '@inertiajs/vue3';
+import { Head, Link, createInertiaApp } from '@inertiajs/vue3';
 import { createApp, h } from 'vue';
 import Layout from './Shared/Layout.vue';
 
 createInertiaApp({
-  resolve: name => {
+  resolve:  name => {
     const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
     const page = pages[`./Pages/${name}.vue`]
     page.default.layout ??= Layout;
@@ -12,10 +12,12 @@ createInertiaApp({
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
       .use(plugin)
-    //   .component('Link', Link)
+      .component('Link', Link)
+      .component('Head', Head)
       .mount(el)
   },
   progress: {
     color: '#29d',
-  }
+  },
+  title: title => `My App - ${title}`,
 });
