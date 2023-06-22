@@ -12,7 +12,7 @@ use Inertia\Inertia;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return Inertia::render('Home');
@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::get('/users', function () {
     // sleep(2);
     return Inertia::render('Users', [
-        'time' => now()->toTimeString()
+        'time' => now()->toTimeString(),
     ]);
 });
 
